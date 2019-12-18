@@ -727,10 +727,15 @@ class Languages {
       isSnippet = false
       item.insertTextFormat = InsertTextFormat.PlainText
     }
+    if (shortcut === "TSC") {
+      shortcut = "ﯤ "
+    } else if (shortcut === "S") {
+      shortcut = " "
+    }
     let obj: VimCompleteItem = {
       word: complete.getWord(item, opt, invalidInsertCharacters),
       abbr: label,
-      menu: `[${shortcut}]`,
+      menu: `│ ${shortcut}`,
       kind: complete.completionKindString(item.kind, this.completionItemKindMap, this.completeConfig.defaultKindText),
       score: item['score'] || null,
       sortText: item.sortText || null,

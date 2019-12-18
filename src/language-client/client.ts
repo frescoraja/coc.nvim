@@ -1774,7 +1774,7 @@ class CompletionItemFeature extends TextDocumentFeature<
     let languageIds = cv.asLanguageIds(options.documentSelector!)
     return languages.registerCompletionItemProvider(
       this._client.id,
-      'LS',
+      '歷',
       languageIds,
       {
         provideCompletionItems: (
