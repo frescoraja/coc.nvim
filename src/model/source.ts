@@ -44,7 +44,7 @@ export default class Source implements ISource {
     return this.getConfig('triggerCharacters', null)
   }
 
-  // exists opitonnal function names for remote source
+  // exists optional function names for remote source
   public get optionalFns(): string[] {
     return this.defaults['optionalFns'] || []
   }
@@ -89,7 +89,7 @@ export default class Source implements ISource {
 
   public get menu(): string {
     let { shortcut } = this
-    return shortcut ? `[${shortcut}]` : ''
+    return shortcut ? `│ ${shortcut}` : '│'
   }
 
   /**

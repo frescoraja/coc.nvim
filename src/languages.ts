@@ -681,10 +681,16 @@ class Languages {
     let hasAdditionalEdit = item.additionalTextEdits && item.additionalTextEdits.length > 0
     let isSnippet = item.insertTextFormat === InsertTextFormat.Snippet || hasAdditionalEdit
     let label = item.label.trim()
+    // Customize TypeScript / Snippet source icons
+    if (shortcut === "TSC") {
+      shortcut = "ﯤ "
+    } else if (shortcut === "S") {
+      shortcut = " "
+    }
     let obj: VimCompleteItem = {
       word: complete.getWord(item, opt, invalidInsertCharacters),
       abbr: label,
-      menu: `[${shortcut}]`,
+      menu: `│ ${shortcut}`,
       kind: complete.completionKindString(item.kind, this.completionItemKindMap, this.completeConfig.defaultKindText),
       sortText: item.sortText || null,
       sourceScore: item['score'] || null,
